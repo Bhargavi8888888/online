@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>adminLogin Page</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='adminlogin.css')}}">
+<style>
+	body {
+    background-image: url('https://www.designyourway.net/blog/wp-content/uploads/2018/11/pastel-background-goo-1250x834.jpg');
+    background-size: cover;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 200px;
+    padding: 20px;
+    width: 400px;
+    margin-left: 500px;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type=text], input[type=password] {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+button {
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+</style>
+		
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+	<div class="container">
+		<h1>Login</h1>
+		<form  method="post">
+			<label >Username</label>
+			<input type="text" name="username" placeholder="Enter your username" required>
+
+			<label for="password">Password</label>
+			<input type="password" name="password" placeholder="Enter your password" required>
+			<br>
+			<a href="{{url_for('adminforgot')}}">Forgot Password?</a>
+            <br>
+			<button type="submit">Login</button>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OTP </title>
+	<link rel="stylesheet" href="{{url_for('static',filename='userreg.css')}}">
+<style>
+	body {
+    background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg');
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    color: #1d1c1c;
+    border: #fff;
+    
+    background-color: rgb(186, 212, 225);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(211, 204, 204, 0.2);
+    margin: 100px;
+    padding: 20px;
+    width: 400px;
+    margin-left: 500px;
+}
+
+h1 {
+    color: #070707;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type=text], input[type=password] {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+button {
+    background-color:rgb(255, 0, 25);
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+</style>
+		
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+	
+	<div class="container">
+		
+		
+		<body>
+      <form method="POST"  action="{{url_for('otp',otp=otp,username=username,password=password,email=email,mobile=mobile,gender=gender)}}">
+          <h1>Enter OTP</h1>
+          <input type="text" name="otp"><br>
+          <button>Submit</button>
+      </form>
+</body>
+</html>
